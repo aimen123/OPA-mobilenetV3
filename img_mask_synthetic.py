@@ -30,7 +30,8 @@ def main():
             for j in range(h):
                 synthe[i,j,0:3] = img[i,j]
                 synthe[i,j,3] = mask[i,j,0]
-        path = "rea/" + rea
+        # 这里一定要用PNG保存，要不然保存不了
+        path = "rea/" + rea[:-1] + "png"
         # 打印
         print(str(tag) + "/" + str(len(reason_list)), rea, synthe[100,100,0:4])
         cv2.imwrite(path ,synthe)
